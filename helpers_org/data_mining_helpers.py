@@ -1,11 +1,15 @@
 import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 
 """
-Helper functions for data mining lab session 2018 Fall Semester
-Author: Elvis Saravia
-Email: ellfae@gmail.com
+Helper functions for data mining lab session 2017 Fall
+
+Notations:
+d - document
+D - documents
+V - vowels
+w - word
+W - words
+l - letter
 """
 
 def format_rows(docs):
@@ -28,32 +32,6 @@ def check_missing_values(row):
             counter+=1
     return ("The amoung of missing records is: ", counter)
 
-def filter_stpWords(text):
-
-    stop_words = set(stopwords.words("english"))
-    words = word_tokenize(text)
-
-    filtered_sent = []
-
-    for w in words:
-        if w not in stop_words:
-            filtered_sent.append(w)
-
-    return filtered_sent
-
-def tokenize_text(text, remove_stopwords=False):
-    """
-    Tokenize text using the nltk library
-    """
-    tokens = []
-
-    for d in nltk.sent_tokenize(text, language='english'):
-        for word in nltk.word_tokenize(d, language='english'):
-            # filters here
-            #filtered_word=filter_stpWords(word)
-            tokens.append(word)
-    return tokens
-'''
 def tokenize_text(text, remove_stopwords=False):
     """
     Tokenize text using the nltk library
@@ -64,4 +42,3 @@ def tokenize_text(text, remove_stopwords=False):
             # filters here
             tokens.append(word)
     return tokens
-'''
